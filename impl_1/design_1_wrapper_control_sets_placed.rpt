@@ -1,0 +1,75 @@
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+| Date         : Tue Apr  7 11:51:48 2026
+| Host         : LAPTOP-6GRJ86SI running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file design_1_wrapper_control_sets_placed.rpt
+| Design       : design_1_wrapper
+| Device       : xc7a35t
+---------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Number of unique control sets                            |     9 |
+| Unused register locations in slices containing registers |    34 |
++----------------------------------------------------------+-------+
+
+
+2. Histogram
+------------
+
++--------+--------------+
+| Fanout | Control Sets |
++--------+--------------+
+|      2 |            3 |
+|      4 |            4 |
+|    16+ |            2 |
++--------+--------------+
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |               6 |            4 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |              64 |           16 |
+| Yes          | No                    | No                     |               0 |            0 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |              16 |            6 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++-----------------------------------------------+---------------------------------------------+--------------------------------------------------------+------------------+----------------+
+|                  Clock Signal                 |                Enable Signal                |                    Set/Reset Signal                    | Slice Load Count | Bel Load Count |
++-----------------------------------------------+---------------------------------------------+--------------------------------------------------------+------------------+----------------+
+|  design_1_i/Clock_Divider_100/U0/clkout       |                                             |                                                        |                1 |              2 |
+|  clk_IBUF_BUFG                                |                                             |                                                        |                2 |              2 |
+|  design_1_i/Clock_Divider_250/U0/clkout       |                                             |                                                        |                1 |              2 |
+|  design_1_i/Clock_Divider_100/U0/clkout       | StartStopSW_IBUF                            | design_1_i/counter_bcd_mod100_0/U0/tens_cnt[3]_i_1_n_0 |                2 |              4 |
+|  design_1_i/Clock_Divider_100/U0/clkout       | design_1_i/counter_bcd_mod100_0/U0/tens_cnt | design_1_i/counter_bcd_mod100_0/U0/tens_cnt[3]_i_1_n_0 |                1 |              4 |
+|  design_1_i/counter_bcd_mod100_0/U0/carry_out | StartStopSW_IBUF                            | design_1_i/counter_bcd_mod60_0/U0/tens_cnt[3]_i_1_n_0  |                2 |              4 |
+|  design_1_i/counter_bcd_mod100_0/U0/carry_out | design_1_i/counter_bcd_mod60_0/U0/tens_cnt  | design_1_i/counter_bcd_mod60_0/U0/tens_cnt[3]_i_1_n_0  |                1 |              4 |
+|  clk_IBUF_BUFG                                |                                             | design_1_i/Clock_Divider_100/U0/clear                  |                8 |             32 |
+|  clk_IBUF_BUFG                                |                                             | design_1_i/Clock_Divider_250/U0/clear                  |                8 |             32 |
++-----------------------------------------------+---------------------------------------------+--------------------------------------------------------+------------------+----------------+
+
+

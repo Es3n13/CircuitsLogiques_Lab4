@@ -1,7 +1,7 @@
 --Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
---Date        : Tue Apr  7 10:54:42 2026
+--Date        : Thu Apr  9 13:52:14 2026
 --Host        : LAPTOP-6GRJ86SI running 64-bit major release  (build 9200)
 --Command     : generate_target design_1.bd
 --Design      : design_1
@@ -20,10 +20,10 @@ entity design_1 is
     reset : in STD_LOGIC;
     seg : out STD_LOGIC_VECTOR ( 6 downto 0 )
   );
-  attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of design_1 : entity is "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=9,numReposBlks=9,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=8,numPkgbdBlks=0,bdsource=USER,synth_mode=OOC_per_IP}";
-  attribute HW_HANDOFF : string;
-  attribute HW_HANDOFF of design_1 : entity is "design_1.hwdef";
+  attribute core_generation_info : string;
+  attribute core_generation_info of design_1 : entity is "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=9,numReposBlks=9,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=8,numPkgbdBlks=0,bdsource=USER,synth_mode=OOC_per_IP}";
+  attribute hw_handoff : string;
+  attribute hw_handoff of design_1 : entity is "design_1.hwdef";
 end design_1;
 
 architecture STRUCTURE of design_1 is
@@ -88,7 +88,7 @@ architecture STRUCTURE of design_1 is
   end component design_1_xup_clk_divider_1_0;
   component design_1_xlslice_0_0 is
   port (
-    Din : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    Din : in STD_LOGIC_VECTOR ( 3 downto 0 );
     Dout : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component design_1_xlslice_0_0;
@@ -107,7 +107,6 @@ architecture STRUCTURE of design_1 is
   signal decoder_bcd_7seg_0_segments : STD_LOGIC_VECTOR ( 6 downto 0 );
   signal mux_4x1_0_bcd_out : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal reset_1 : STD_LOGIC;
-  signal NLW_Bit_Extractor_Din_UNCONNECTED : STD_LOGIC_VECTOR ( 31 downto 4 );
 begin
   StartStopSW_1 <= StartStopSW;
   an(3 downto 0) <= decoder_2to4_0_an(3 downto 0);
@@ -117,8 +116,7 @@ begin
   seg(6 downto 0) <= decoder_bcd_7seg_0_segments(6 downto 0);
 Bit_Extractor: component design_1_xlslice_0_0
      port map (
-      Din(31 downto 4) => NLW_Bit_Extractor_Din_UNCONNECTED(31 downto 4),
-      Din(3 downto 0) => mux_4x1_0_bcd_out(3 downto 0),
+      Din(3 downto 0) => decoder_2to4_0_an(3 downto 0),
       Dout(0) => Bit_Extractor_Dout(0)
     );
 Clock_Divider_100: component design_1_xup_clk_divider_1_0
@@ -144,8 +142,8 @@ counter_bcd_mod60_0: component design_1_counter_bcd_mod60_0_0
      port map (
       QLSB(3 downto 0) => counter_bcd_mod60_0_QLSB(3 downto 0),
       QMSB(3 downto 0) => counter_bcd_mod60_0_QMSB(3 downto 0),
-      clk => counter_bcd_mod100_0_carry_out,
-      cs => StartStopSW_1,
+      clk => Clock_Divider_100_clkout,
+      cs => counter_bcd_mod100_0_carry_out,
       reset => reset_1
     );
 counter_binary_2bit_0: component design_1_counter_binary_2bit_0_0
@@ -166,10 +164,10 @@ decoder_bcd_7seg_0: component design_1_decoder_bcd_7seg_0_0
 mux_4x1_0: component design_1_mux_4x1_0_0
      port map (
       bcd_out(3 downto 0) => mux_4x1_0_bcd_out(3 downto 0),
-      in0(3 downto 0) => counter_bcd_mod100_0_QMSB(3 downto 0),
-      in1(3 downto 0) => counter_bcd_mod100_0_QLSB(3 downto 0),
-      in2(3 downto 0) => counter_bcd_mod60_0_QMSB(3 downto 0),
-      in3(3 downto 0) => counter_bcd_mod60_0_QLSB(3 downto 0),
+      in0(3 downto 0) => counter_bcd_mod100_0_QLSB(3 downto 0),
+      in1(3 downto 0) => counter_bcd_mod100_0_QMSB(3 downto 0),
+      in2(3 downto 0) => counter_bcd_mod60_0_QLSB(3 downto 0),
+      in3(3 downto 0) => counter_bcd_mod60_0_QMSB(3 downto 0),
       select_in(1 downto 0) => counter_binary_2bit_0_select_out(1 downto 0)
     );
 end STRUCTURE;

@@ -1,0 +1,470 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x13C1AD4F2BB838A0",
+      "device": "xc7a35tcpg236-1",
+      "name": "design_3",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2018.3",
+      "validated": "true"
+    },
+    "design_tree": {
+      "counter_bcd_mod60_0": "",
+      "counter_binary_2bit_0": "",
+      "mux_4x1_0": "",
+      "decoder_bcd_7seg_0": "",
+      "decoder_2to4_0": "",
+      "Clock_Divider_250": "",
+      "Clock_Divider_1": "",
+      "Bit_Extractor": "",
+      "button_edge_det": "",
+      "toggle_start_stop": "",
+      "counter_bcd_mod60_wi_1": ""
+    },
+    "ports": {
+      "clk": {
+        "direction": "I"
+      },
+      "reset": {
+        "direction": "I"
+      },
+      "dp": {
+        "direction": "O",
+        "left": "0",
+        "right": "0"
+      },
+      "seg": {
+        "direction": "O",
+        "left": "6",
+        "right": "0"
+      },
+      "an": {
+        "direction": "O",
+        "left": "3",
+        "right": "0"
+      },
+      "StartStopSW": {
+        "direction": "I"
+      }
+    },
+    "components": {
+      "counter_bcd_mod60_0": {
+        "vlnv": "xilinx.com:module_ref:counter_bcd_mod60:1.0",
+        "xci_name": "design_3_counter_bcd_mod60_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "counter_bcd_mod60",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "reset",
+                "value_src": "constant"
+              }
+            }
+          },
+          "reset": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "cs": {
+            "direction": "I"
+          },
+          "QMSB": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "QLSB": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          }
+        }
+      },
+      "counter_binary_2bit_0": {
+        "vlnv": "xilinx.com:module_ref:counter_binary_2bit:1.0",
+        "xci_name": "design_3_counter_binary_2bit_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "counter_binary_2bit",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "select_out": {
+            "direction": "O",
+            "left": "1",
+            "right": "0"
+          }
+        }
+      },
+      "mux_4x1_0": {
+        "vlnv": "xilinx.com:module_ref:mux_4x1:1.0",
+        "xci_name": "design_3_mux_4x1_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "mux_4x1",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "in0": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "in1": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "in2": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "in3": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "select_in": {
+            "direction": "I",
+            "left": "1",
+            "right": "0"
+          },
+          "bcd_out": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          }
+        }
+      },
+      "decoder_bcd_7seg_0": {
+        "vlnv": "xilinx.com:module_ref:decoder_bcd_7seg:1.0",
+        "xci_name": "design_3_decoder_bcd_7seg_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "decoder_bcd_7seg",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "bcd": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "segments": {
+            "direction": "O",
+            "left": "6",
+            "right": "0"
+          }
+        }
+      },
+      "decoder_2to4_0": {
+        "vlnv": "xilinx.com:module_ref:decoder_2to4:1.0",
+        "xci_name": "design_3_decoder_2to4_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "decoder_2to4",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "sel": {
+            "direction": "I",
+            "left": "1",
+            "right": "0"
+          },
+          "an": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          }
+        }
+      },
+      "Clock_Divider_250": {
+        "vlnv": "xilinx.com:module_ref:xup_clk_divider:1.0",
+        "xci_name": "design_3_Clock_Divider_250_0",
+        "parameters": {
+          "SIZE": {
+            "value": "400000"
+          }
+        },
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "xup_clk_divider",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clkin": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "clkout": {
+            "direction": "O"
+          }
+        }
+      },
+      "Clock_Divider_1": {
+        "vlnv": "xilinx.com:module_ref:xup_clk_divider:1.0",
+        "xci_name": "design_3_Clock_Divider_100_0",
+        "parameters": {
+          "SIZE": {
+            "value": "100000000"
+          }
+        },
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "xup_clk_divider",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clkin": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "clkout": {
+            "direction": "O"
+          }
+        }
+      },
+      "Bit_Extractor": {
+        "vlnv": "xilinx.com:ip:xlslice:1.0",
+        "xci_name": "design_3_Bit_Extractor_0",
+        "parameters": {
+          "DIN_FROM": {
+            "value": "2"
+          },
+          "DIN_TO": {
+            "value": "2"
+          },
+          "DIN_WIDTH": {
+            "value": "4"
+          },
+          "DOUT_WIDTH": {
+            "value": "1"
+          }
+        }
+      },
+      "button_edge_det": {
+        "vlnv": "xilinx.com:module_ref:button_edge_detector:1.0",
+        "xci_name": "design_3_button_edge_det_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "button_edge_detector",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "reset",
+                "value_src": "constant"
+              }
+            }
+          },
+          "reset": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "btn_level": {
+            "direction": "I"
+          },
+          "rising_edge_pulse": {
+            "direction": "O"
+          }
+        }
+      },
+      "toggle_start_stop": {
+        "vlnv": "xilinx.com:module_ref:toggle_ff:1.0",
+        "xci_name": "design_3_toggle_start_stop_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "toggle_ff",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "reset",
+                "value_src": "constant"
+              }
+            }
+          },
+          "reset": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "q": {
+            "direction": "O"
+          }
+        }
+      },
+      "counter_bcd_mod60_wi_1": {
+        "vlnv": "xilinx.com:module_ref:counter_bcd_mod60_with_carry:1.0",
+        "xci_name": "design_3_counter_bcd_mod60_wi_1_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "counter_bcd_mod60_with_carry",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "reset",
+                "value_src": "constant"
+              }
+            }
+          },
+          "reset": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "cs": {
+            "direction": "I"
+          },
+          "carry_out": {
+            "direction": "O"
+          },
+          "QMSB": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "QLSB": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          }
+        }
+      }
+    },
+    "nets": {
+      "Clock_Divider_100_clkout": {
+        "ports": [
+          "Clock_Divider_1/clkout",
+          "counter_bcd_mod60_0/clk",
+          "counter_bcd_mod60_wi_1/clk"
+        ]
+      },
+      "reset_1": {
+        "ports": [
+          "reset",
+          "counter_bcd_mod60_0/reset",
+          "button_edge_det/reset",
+          "toggle_start_stop/reset",
+          "counter_bcd_mod60_wi_1/reset"
+        ]
+      },
+      "counter_binary_2bit_0_select_out": {
+        "ports": [
+          "counter_binary_2bit_0/select_out",
+          "mux_4x1_0/select_in",
+          "decoder_2to4_0/sel"
+        ]
+      },
+      "Clock_Divider_250_clkout": {
+        "ports": [
+          "Clock_Divider_250/clkout",
+          "counter_binary_2bit_0/clk",
+          "button_edge_det/clk"
+        ]
+      },
+      "decoder_2to4_0_an": {
+        "ports": [
+          "decoder_2to4_0/an",
+          "an",
+          "Bit_Extractor/Din"
+        ]
+      },
+      "Bit_Extractor_Dout": {
+        "ports": [
+          "Bit_Extractor/Dout",
+          "dp"
+        ]
+      },
+      "decoder_bcd_7seg_0_segments": {
+        "ports": [
+          "decoder_bcd_7seg_0/segments",
+          "seg"
+        ]
+      },
+      "counter_bcd_mod60_0_QLSB": {
+        "ports": [
+          "counter_bcd_mod60_0/QLSB",
+          "mux_4x1_0/in2"
+        ]
+      },
+      "counter_bcd_mod60_0_QMSB": {
+        "ports": [
+          "counter_bcd_mod60_0/QMSB",
+          "mux_4x1_0/in3"
+        ]
+      },
+      "mux_4x1_0_bcd_out": {
+        "ports": [
+          "mux_4x1_0/bcd_out",
+          "decoder_bcd_7seg_0/bcd"
+        ]
+      },
+      "clk_1": {
+        "ports": [
+          "clk",
+          "Clock_Divider_1/clkin",
+          "Clock_Divider_250/clkin"
+        ]
+      },
+      "button_edge_det_rising_edge_pulse": {
+        "ports": [
+          "button_edge_det/rising_edge_pulse",
+          "toggle_start_stop/clk"
+        ]
+      },
+      "counter_bcd_mod60_wi_1_carry_out": {
+        "ports": [
+          "counter_bcd_mod60_wi_1/carry_out",
+          "counter_bcd_mod60_0/cs"
+        ]
+      },
+      "counter_bcd_mod60_wi_1_QMSB": {
+        "ports": [
+          "counter_bcd_mod60_wi_1/QMSB",
+          "mux_4x1_0/in1"
+        ]
+      },
+      "counter_bcd_mod60_wi_1_QLSB": {
+        "ports": [
+          "counter_bcd_mod60_wi_1/QLSB",
+          "mux_4x1_0/in0"
+        ]
+      },
+      "StartStopSW_1": {
+        "ports": [
+          "StartStopSW",
+          "button_edge_det/btn_level"
+        ]
+      },
+      "toggle_start_stop_q": {
+        "ports": [
+          "toggle_start_stop/q",
+          "counter_bcd_mod60_wi_1/cs"
+        ]
+      }
+    }
+  }
+}
